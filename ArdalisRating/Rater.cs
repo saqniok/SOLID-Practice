@@ -3,9 +3,9 @@ namespace ArdalisRating
     public abstract class Rater
     {
         protected readonly RatingEngine _engine;
-        protected readonly ConsoleLogger _logger;
+        protected readonly ILogger _logger;
 
-        public Rater(RatingEngine engine, ConsoleLogger logger)
+        public Rater(RatingEngine engine, ILogger logger)
         {
             _engine = engine;
             _logger = logger;

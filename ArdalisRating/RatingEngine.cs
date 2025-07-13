@@ -2,6 +2,8 @@
 using Newtonsoft.Json.Converters;
 using System;
 using System.IO;
+using System.Linq;
+using System.Reflection.Metadata;
 
 namespace ArdalisRating
 {
@@ -9,11 +11,14 @@ namespace ArdalisRating
     /// The RatingEngine reads the policy application details from a file and produces a numeric 
     /// rating value based on the details.
     /// </summary>
-    public class RatingEngine
+    public class RatingEngine(ILogger logger, IPolicySource policySource)
     {
         public decimal Rating { get; set; }
-        public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
-        public FilePolicySource PolicySource { get; set; } = new FilePolicySource();
+
+        public ILogger Logger { get; set; } = logger;
+        public IPolicySource PolicySource { get; set; } = policySource;
+
+
         public void Rate()
         {
             Logger.Log("Starting rate.");

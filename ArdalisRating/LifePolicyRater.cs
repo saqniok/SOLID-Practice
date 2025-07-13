@@ -3,7 +3,7 @@ namespace ArdalisRating;
 
 public class LifePolicyRater : Rater
 {
-    public LifePolicyRater(RatingEngine engine, ConsoleLogger logger)
+    public LifePolicyRater(RatingEngine engine, Logger logger)
     : base(engine, logger)
     {
     }

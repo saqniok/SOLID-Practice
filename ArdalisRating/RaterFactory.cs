@@ -6,18 +6,16 @@ namespace ArdalisRating
     {
         public Rater Create(Policy policy, RatingEngine engine)
         {
-            switch (policy.Type)
+            try
             {
-                case PolicyType.Auto:
-                    return new AutoPolicyRater(engine, engine.Logger);
-                case PolicyType.Land:
-                    return new LandPolicyRater(engine, engine.Logger);
-                case PolicyType.Life:
-                    return new LifePolicyRater(engine, engine.Logger);
-
-                default:
-                    throw new InvalidOperationException("Unknown policy type");
+                return (Rater)Activator.CreateInstance(
+                    Type.GetType($"ArdalisRating.{policy.Type}PolyciRater"),
+                    new object[] { engine, engine.Logger });
             }
+            catch
+            {
+                return new UnknownPolicyRater(engine, engine.Logger);
+            }  
         }
     }
 }

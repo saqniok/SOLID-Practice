@@ -3,7 +3,7 @@ namespace ArdalisRating;
 public class LandPolicyRater : Rater
 {
 
-    public LandPolicyRater(RatingEngine engine, ConsoleLogger logger)
+    public LandPolicyRater(RatingEngine engine, Logger logger)
     : base(engine, logger)
     {
     }

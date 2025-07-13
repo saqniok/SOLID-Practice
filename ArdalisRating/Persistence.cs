@@ -1,9 +1,15 @@
 using System.IO;
-
-public class FilePolicySource
+namespace ArdalisRating
 {
-    public string GetPolicyFromSource()
+    public interface IPolicySource
     {
-        return File.ReadAllText("policy.json");
+        string GetPolicyFromSource();
+    }
+    public class FilePolicySource : IPolicySource
+    {
+        public string GetPolicyFromSource()
+        {
+            return File.ReadAllText("policy.json");
+        }
     }
 }

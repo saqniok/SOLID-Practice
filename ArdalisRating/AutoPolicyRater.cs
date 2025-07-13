@@ -4,7 +4,7 @@ namespace ArdalisRating;
 public class AutoPolicyRater : Rater
 {
 
-    public AutoPolicyRater(RatingEngine engine, ConsoleLogger logger)
+    public AutoPolicyRater(RatingEngine engine, Logger logger)
     : base(engine, logger)
     {
     }
